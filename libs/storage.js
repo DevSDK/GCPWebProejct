@@ -14,12 +14,14 @@ getFaceList = function() {
         return ret
 }
 
-addFaceList = function(title, image, ai_emo, hum_emo) {
+addFaceList = function(title, image, ai_emo, hum_emo, successFlag) {
     arr = getFaceList()
     var obj = {
       id : uuid(),
+      image : image,
       title : title,
-      emotions: {ai:ai_emo, hum:hum_emo}
+      emotions: {ai:ai_emo, hum:hum_emo},
+      success: successFlag
     }
     arr.push(obj)
     localStorage.setItem('facelist',JSON.stringify(arr))  
@@ -47,7 +49,7 @@ getObjectList = function() {
 
 
 
-addObjectList = function(title, image, ai_objs, hum_objs) {
+addObjectList = function(title, img, ai_objs, hum_objs, rect) {
 
   arr = getObjectList()
 
@@ -56,8 +58,9 @@ addObjectList = function(title, image, ai_objs, hum_objs) {
     id : uuid(),
 
     title : title,
-
-    objects : {ai: ai_objs, hum : hum_objs}
+    image : img,
+    objects : {ai: ai_objs, hum : hum_objs},
+    rect: []
   }
 
   arr.push(obj)
