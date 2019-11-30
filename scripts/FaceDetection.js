@@ -5,8 +5,10 @@ var ai_exp = {}
 var hum_exp = {}
 var successFlag = false
 $(document).on('input', '#uploadfile', function() {
-
-        $("#file-label").text($(this).val())
+    var text = $(this).val()
+    if(text.length > 62)
+        text = "..."+text.substring(text.length - 62 , text.length)
+    $("#file-label").text(text)
 })
 
 $(document).on('input', '#joy-range', function() {
@@ -55,7 +57,7 @@ $(function() {
     $("#uploadfile").change(function () {
         getBase64(this.files[0] ,function(ret) {
             var ctx = $("#canv")[0].getContext("2d");
-            image= new Image();
+            image= new Image()
 
 
             image.onload = function() {
@@ -85,7 +87,7 @@ $(function() {
         url:"https://vision.googleapis.com/v1/images:annotate?key=",
         async:true,
         type:'POST',
-        dataType:'json',
+        dataType:'json',    
         contentType:"application/json",
         data: JSON.stringify (   
             {
@@ -109,11 +111,10 @@ $(function() {
         ,
     success:function(res) {
         var ctx = $("#canv")[0].getContext("2d");
-        for(var rs in res.responses)
+        for(var rs of res.responses)
         {
-            for(var i in res.responses[rs].faceAnnotations)
+            for(var fano of rs.faceAnnotations)
             {
-                var fano = res.responses[rs].faceAnnotations[i];
                 v = fano.boundingPoly.vertices;
                 w = Math.abs(v[0].x - v[1].x)
                 h = Math.abs(v[0].y - v[2].y)

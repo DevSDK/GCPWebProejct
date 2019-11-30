@@ -28,9 +28,13 @@ addFaceList = function(title, image, ai_emo, hum_emo, successFlag) {
 }
 
 removeFaceList = function(id) {
-    arr = exports.getFaceList()
+    arr = getFaceList()
     var idx = arr.findIndex(function(v) { return v.id == id })
-    if(idx > -1) arr.splice(idx,1)
+    if(idx > -1)
+    { 
+    arr.splice(idx,1)
+    localStorage.setItem('facelist',JSON.stringify(arr))  
+    }
 }
 
 getObjectList = function() {
@@ -77,6 +81,9 @@ removeObjectList = function(id) {
 
   var idx = arr.findIndex(function(v) { return v.id == id })
 
-  if(idx > -1) arr.splice(idx,1)
-
+  if(idx > -1)
+  {
+    arr.splice(idx,1)
+    localStorage.setItem('objectlist',JSON.stringify(arr))  
+  } 
 }
