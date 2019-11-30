@@ -139,13 +139,10 @@ $(function() {
                 $("#ai-joy>.progress-bar").text(ai_joy+"%")
                 $("#ai-sorrow>.progress-bar").css("width", ai_sad +"%");
                 $("#ai-sorrow>.progress-bar").text(ai_sad+"%")
-
                 $("#ai-anger>.progress-bar").css("width", ai_anger +"%");
                 $("#ai-anger>.progress-bar").text(ai_anger+"%")
-
                 $("#ai-surprise>.progress-bar").css("width", ai_surprise +"%");
                 $("#ai-surprise>.progress-bar").text(ai_surprise+"%")
-
 
                 $("#hu-joy>.progress-bar").css("width", hu_joy+"%");
                 $("#hu-joy>.progress-bar").text(hu_joy+"%")
@@ -190,8 +187,8 @@ $("#savebutton").click(function()
     if($("#title-inp").val().length == 0)
         return
     var ctx = $("#canv")[0].toDataURL()
-    var title = $("#submited").val()
-    addFaceList(title,ctx, ai_exp,hum_exp, successFlag)
+    var title = $("#title-inp").val()
+    addFaceList(title,ctx, ai_exp,hu_exp, successFlag)
     alert("saved")
     location.reload()
 })

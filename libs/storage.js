@@ -49,7 +49,7 @@ getObjectList = function() {
 
 
 
-addObjectList = function(title, img, ai_objs, hum_objs, rect) {
+addObjectList = function(title, img, ai_objs, hum_objs, successFlag) {
 
   arr = getObjectList()
 
@@ -60,7 +60,7 @@ addObjectList = function(title, img, ai_objs, hum_objs, rect) {
     title : title,
     image : img,
     objects : {ai: ai_objs, hum : hum_objs},
-    rect: []
+    success : successFlag
   }
 
   arr.push(obj)
