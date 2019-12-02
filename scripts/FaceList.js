@@ -3,10 +3,10 @@
 $(document).ready(function () {
 
 
-  var facelist =  getFaceList()
-  if(facelist.length == 0) {
+  var facelist = getFaceList()
+  if (facelist.length == 0) {
 
-    var s  = `<div class="alert alert-danger col-lg" role="alert">
+    var s = `<div class="alert alert-danger col-lg" role="alert">
       Face Stroage is empty! 
   </div>`
 
@@ -138,7 +138,7 @@ $(document).ready(function () {
       </div>
     </div>
     <br>
-    <button type="button" style="font-size: 30px; color: black;" class="btn btn-link fa fa-trash" aria-hidden="true" card_id="`+ V.id +`"></button>
+    <button id="delete_button" type="button" style="font-size: 30px; color: black;" class="btn btn-link fa fa-trash" aria-hidden="true" card_id="`+ V.id + `"></button>
 
   </div>
 </div>
@@ -146,4 +146,15 @@ $(document).ready(function () {
 
     $(".face-list").append(s)
   }
+})
+
+
+$(document).on('click', '#delete_button',function () {
+  if (!confirm("are you sure?"))
+    return
+
+  removeFaceList($(this).attr("card_id"))
+
+  location.reload()
+
 })
