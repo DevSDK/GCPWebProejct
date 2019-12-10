@@ -13,29 +13,35 @@ $(document).ready(function () {
   }
 
   for (V of objectlist) {
-    var s = `<div class="col-lg-6" style="margin-bottom:30px">
+    var s = `<div class="col-12 col-md-6" style="margin-bottom:30px">
   <div class="card">
            <h5 class="card-header">`+ V.title + '<div class=" float-right badge ' + (V.success ? ' badge-success' : ' badge-danger') + '">' + (V.success ? "SAME" : "DIFF") + `</div> </h5>
           <div class="card-body">
             <div class="row">
  
-            <img class="" src="`+ V.image + `"style="width:400px; padding-bottom:30px; margin: auto;">
-            <div class="col">
+            <div class="col-xl-6">
+            <img class="col"src="`+ V.image + `"style=" padding-bottom:30px; margin: auto;">
+            </div>
+            <div class="col-12 col-xl-6">
             <div class="row">
-            <div class="card border-secondary" style=" margin-bottom: 20px;">
-            <div class="card-header">Com</div>
-            <div class="card-body text-secondary">
-                <P style="height:50px" class="overflow-auto">`+ V.objects.ai + `</P>
+            
+              <div class="col-12">
+              <div class="card border-secondary" style=" margin-bottom: 20px;">
+                <div class="card-header">Com</div>
+                <div class="card-body text-secondary">
+                    <P style=AIzaSyDpFr8CHFycP95gTZ5Dc_G7913fabSYy-QAIzaSyDpFr8CHFycP95gTZ5Dc_G7913fabSYy-Q"height:50px" class="overflow-auto">`+ V.objects.ai + `</P>
+                </div>
+                </div>
+              </div>  
+              <div class="col-12">
+                <div class="card border-secondary" style=" margin-bottom: 20px;">
+                  <div class="card-header">Hum</div>
+                  <div class="card-body text-secondary">
+                    <P style="height:50px" class="overflow-auto">`+ V.objects.hum + `</P>
+                  </div>
+                </div>
+              </div>  
             </div>
-            </div>  
-          
-            <div class="card border-secondary col-12" style=" margin-bottom: 20px;">
-            <div class="card-header">Hum</div>
-            <div class="card-body text-secondary">
-                <P style="height:50px" class="overflow-auto">`+ V.objects.hum + `</P>
-            </div>
-            </div>  
-          </div>
             
             
             </div>
