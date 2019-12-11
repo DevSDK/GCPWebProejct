@@ -1,0 +1,62 @@
+<!--부트스트랩의 그리드레이아웃의 col-12 col-sm-6 기능을 씀 밑너비를 30px지정-->
+<div class="col-12 col-md-6" style="margin-bottom:30px">
+  <div class="card">
+    <!--ObjectDetection에서 적용한 title을 불러고 같으면 SAME 출력 다르면 DIFF출력-->
+    <h5 class="card-header">`+ V.title + '<div
+        class=" float-right badge ' + (V.success ? ' badge-success' : ' badge-danger') + '">' + (V.success ? "SAME" :
+        "DIFF") + `</div>
+    </h5>
+    <div class="card-body">
+      <!--부트스트랩의 그리드레이아웃의 row기능을 씀-->
+      <div class="row">
+        <!--부트스트랩 컴포넌트의 col-xl-6 기능 이용 -->
+        <div class="col-xl-6">
+          <!--ObjectDetection에서 사용한-->
+          <img class="col" src="`+ V.image + `" style=" padding-bottom:30px; margin: auto;">
+        </div>
+        <!--부트스트랩 컴포넌트의 col-12 col-xl-6 기능 이용 -->
+        <div class="col-12 col-xl-6">
+          <!--부트스트랩의 그리드레이아웃의 row기능을 씀-->
+          <div class="row">
+
+            <!--부트스트랩 컴포넌트의 col-12 기능 이용 -->
+            <div class="col-12">
+              <!--부트스트랩 utilities의 card border-secondary 기능 이용
+              밑너비를 20px -->
+              <div class="card border-secondary" style=" margin-bottom: 20px;">
+                <div class="card-header">Com</div>
+                 <!--부트스트랩 color의 text-secondary 기능 이용 -->
+                <div class="card-body text-secondary">
+                  <!--높이 50px overflow-auto를 이용해 스크롤바 생성
+                  ObjectDetection에서 AI가 인식한 물건들을 불러옴-->
+                  <P style="height:50px"
+                    class="overflow-auto">`+ V.objects.ai + `</P>
+                </div>
+              </div>
+            </div>
+            <!--부트스트랩 컴포넌트의 col-12 기능 이용 -->
+            <div class="col-12">
+              <!--부트스트랩 utilities의 card border-secondary 기능 이용
+              밑너비를 20px -->
+              <div class="card border-secondary" style=" margin-bottom: 20px;">
+                <div class="card-header">Hum</div>
+                 <!--부트스트랩 color의 text-secondary 기능 이용 -->
+                <div class="card-body text-secondary">
+                    <!--높이 50px overflow-auto를 이용해 스크롤바 생성
+                  ObjectDetection에서 사용자가 인식한 물건들을 불러옴-->
+                  <P style="height:50px" class="overflow-auto">`+ V.objects.hum + `</P>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+      <!--font-awesome의 fa-trash 이용-->
+      <button id="delete_button" type="button" style="font-size: 30px; color: black;" class="btn btn-link fa fa-trash"
+        aria-hidden="true" card_id="`+ V.id +`"></button>
+
+    </div>
+  </div>
