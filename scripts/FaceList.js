@@ -15,18 +15,17 @@ $(document).ready(function () {
   }
 
   for (V of facelist) {
-
-
-
-    var s = `<div class="col-mx-6" style="margin-bottom:30px">
+    var s = `<div class="col-12 col-md-6" style="margin-bottom:30px">
 <div class="card">`
 
       + '<h5 class="card-header">' + V.title + '<div class=" float-right badge ' + (V.success ? ' badge-success' : ' badge-danger') + '">' + (V.success ? "SAME" : "DIFF") + '</div> </h5>' +
 
       `<div class="card-body">
     <div class="row">
-
-    <img class="col-md-6" src="`+ V.image + `"  style="height: 50%; min-width:400px; margin: auto; padding-bottom:30px;">
+    <div class="col-xl-6">
+    
+    <img class= "img-fluid" src="`+ V.image + `"style="height:67%; width:100%; padding-bottom:30px; margin: auto;">
+    </div>
       <div class="col-lg-6">
         <div class="card border-secondary col-mb" style="margin-bottom: 20px;">
           <div class="card-header">Com</div>
