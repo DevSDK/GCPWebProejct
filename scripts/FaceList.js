@@ -1,20 +1,27 @@
 
-
+//제이쿼리 실행
 $(document).ready(function () {
 
-
+  //facelist라는 함수는 getFaceList와 같다
   var facelist = getFaceList()
+
+  //facelist에 저장된 사진이 없으면 실행
   if (facelist.length == 0) {
 
+    //저장된 사진이 없음을 알려주기 위해 부트스트랩 컴포넌트의 alert alert-danger를 불러옴
     var s = `<div class="alert alert-danger col-lg" role="alert">
       Face Stroage is empty! 
   </div>`
 
+    //face-list에 추가
     $(".face-list").append(s)
     return
   }
 
+  //facelist에 있는 모든 요소를 참조
   for (V of facelist) {
+
+    //아래 문자열은 elements의 Facecard에서 설명
     var s = `<div class="col-12 col-md-6" style="margin-bottom:30px">
 <div class="card">`
 
@@ -143,12 +150,13 @@ $(document).ready(function () {
 </div>
 </div>`
 
+    //face-list에 추가
     $(".face-list").append(s)
   }
 })
 
 
-$(document).on('click', '#delete_button',function () {
+$(document).on('click', '#delete_button', function () {
   if (!confirm("are you sure?"))
     return
 
