@@ -1,9 +1,11 @@
+//Declare variables
 var ratio = 1
 var image = null
 var submited = false;
 var ai_exp = {}
 var hum_exp = {}
 var successFlag = false
+//Event handlers file upload
 $(document).on('input', '#uploadfile', function() {
     var text = $(this).val()
     if(text.length > 62)
@@ -11,6 +13,7 @@ $(document).on('input', '#uploadfile', function() {
     $("#file-label").text(text)
 })
 
+//Event handler for sliders
 $(document).on('input', '#joy-range', function() {
     $('#joy_label').text( "Joy(" +  ($(this).val() * 25 + "%)" ))
 });
@@ -24,7 +27,7 @@ $(document).on('input', '#sad-range', function() {
     $('#sad_label').text( "Sad(" +  ($(this).val() * 25 + "%)" ))
 });
 
-
+//Convert image to base 64
 function getBase64(file, callback) {
     var reader = new FileReader();
     reader.readAsDataURL(file);
@@ -35,7 +38,7 @@ function getBase64(file, callback) {
       console.log('Error: ', error);
     };
  }
-
+//Keyward to number percentage
 function getStatusByString(s) {
     switch(s) {
         case "UNKNOWN":
@@ -54,12 +57,11 @@ function getStatusByString(s) {
 }
 
 $(function() {  
+    //file event
     $("#uploadfile").change(function () {
         getBase64(this.files[0] ,function(ret) {
             var ctx = $("#canv")[0].getContext("2d");
             image= new Image()
-
-
             image.onload = function() {
                 ctx.canvas.width= 650;
                 ctx.canvas.height= 450;
@@ -77,11 +79,12 @@ $(function() {
     });
  });
 
+ //#image-submit click  event
  $("#image-submit").click(function() {
 
     if(image == null)
         return
-        
+    
     $.ajax (
         {
         url:"https://vision.googleapis.com/v1/images:annotate?key=",

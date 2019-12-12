@@ -1,19 +1,22 @@
 <html>
 
 <head>
+    <!--Define title-->
     <title>Object Detection Page</title>
+    <!--Link font-awesome css cdn-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Link bootstrap css cdn-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css"
         integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
-    <style>
-        .serv-url {
-            margin-bottom: 20px;
-        }
 
+    <!--Define stylesheets-->
+    <style>
+        /*take margin title-h3*/
         .title-h3 {
             margin-bottom: 50px;
         }
 
+        /*Image division stylesheet*/
         .obj-image-group {
             margin-left: 2%;
             margin-right: 2%;
@@ -22,6 +25,7 @@
             margin-bottom: 60px;
         }
 
+        /*Card result styles*/
         .card-result {
             min-width: 500px;
             margin-left: 25px;
@@ -30,30 +34,26 @@
             height: 97%;
         }
 
+        /*card input styles*/
         .card-input {
             margin-left: 25px;
             margin-bottom: 25px;
             margin-top: 80px;
         }
 
-        .inpt-form-exp {
-            margin: 0px 25px 0px 0px;
-        }
-
-        .prog-item {
-            margin-bottom: 10px;
-        }
-
+        /*take margin-top class prog-titles*/
         .prog-title {
             margin-top: 20px;
         }
-        .out-card
-        {
-            height:125px;
+
+        /*outer card division*/
+        .out-card {
+            height: 125px;
         }
     </style>
 </head>
 
+<!--Following nav class is smae with aforementioned navigation bar-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="Index.html"><span class="fa fa-eye" style="margin-right:10px"></span>FOR Project</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
@@ -103,82 +103,124 @@
 </nav>
 
 <body>
-
+    <!--Define body divison layout-->
     <div style="margin:50px">
+        <!--Define Title of this page-->
         <h3 class="title-h3">Object Detection</h3>
         <div>
+            <!--Use predefined row class for row-grid system in Bootstrap-->
             <div class="row">
+                <!--Use predefined col class for col-grid system in Bootstrap-->
                 <div class="col">
+                    <!--Use predefined was-validated class for requiring user input in Bootstrap-->
                     <form class="was-validated">
-
+                        <!--Use predefined col-ml and mx-auto for grid and spacing utility in bootstrap-->
                         <div class="obj-image-group col-ml mx-auto ">
                             <div>
+                                <!--Image Canvas, It would be used to render results-->
                                 <canvas id="canv" width="650" height="450" class="img-thumbnail">
                             </div>
+                            <!--Create custom file upload forms-->
                             <div class="custom-file">
+                                <!--Input image file from user-->
                                 <input type="file" accept="image/*" class="custom-file-input" id="uploadfile" required>
+                                <!--Upload label-->
                                 <label class="custom-file-label" id='file-label' for="uploadfile">Upload</label>
+                                <!--Upload notification-->
                                 <div class="invalid-feedback">Please Upload</div>
                             </div>
                         </div>
+                        <!--Card set of expectation input, used bootstrap predefined class-->
                         <div class="card card-input">
+                            <!--Card title, used bootstrap predefined class-->
                             <div class="card-header">
-                                 Your Expectation
+                                Your Expectation
                             </div>
+                            <!--Card Body, used bootstrap predefined class-->
                             <div class="card-body">
-                                <div class="mb-3">  
+                                <!--Use predefined class md-3 spacing tool-->
+                                <div class="mb-3">
+                                    <!--Input label with validation class-->
                                     <label for="validationTextarea">Labels (Divided by ',')</label>
+                                    <!--Input user object expectations-->
                                     <textarea class="form-control is-invalid" id="inp-texts"
                                         placeholder="required object labels" required></textarea>
+                                    <!--Notification of requiring user input-->
                                     <div class="invalid-feedback">
                                         Please enter a message in the textarea.
-                                    </div>  
+                                    </div>
                                 </div>
-
-                                <button type="button" id="image-submit" class="btn btn-primary float-right">Submit</button>
-
+                                <!--Submit image button used predefined class button in bootstrap-->
+                                <button type="button" id="image-submit"
+                                    class="btn btn-primary float-right">Submit</button>
                             </div>
                     </form>
                 </div>
 
             </div>
+            <!--Use pre-edefined col class for col-grid system in Bootstrap-->
             <div class="col">
+                <!--Card set of results, used bootstrap predefined class-->
                 <div class="card card-result">
+                    <!--Card title, used bootstrap predefined class-->
                     <div class="card-header">
                         Results
                     </div>
+                    <!--Card body, used bootstrap predefined class-->
                     <div class="card-body">
+                        <!--label of AI Expect Result-->
                         <label for="formControlRange" class="prog-title">AI Expect</label>
+                        <!--predefined card class from bootstrap-->
                         <div class="card">
+                            <!--output the result, predefined classes-->
                             <div class="card-body out-card overflow-auto" id='aiexp'>
                             </div>
                         </div>
+                        <!--label of Human Expect Result-->
                         <label for="formControlRange" class="prog-title">HUMAN EXPECT</label>
+                        <!--predefined card class from bootstrap-->
                         <div class="card">
+                            <!--output the result, predefined classes-->
                             <div class="card-body out-card overflow-auto" id="huexp">
                             </div>
                         </div>
+                        <!--Horizontal Line-->
                         <hr>
+                        <!--Use pre-edefined row class for row-grid system in Bootstrap-->
                         <div class="row">
+                            <!--Use pre-edefined col and was-validated class for col-grid system and validation of user input in Bootstrap and-->
                             <form class="col was-validated">
+                                <!--Label of "SAVE THE RESULT"-->                                
                                 <div> <label for="formControlRange" class="prog-title">SAVE THE RESULT</label></div>
+                                <!--Label of "IS IT CORRECT?"-->                                
                                 <label for="title">Is it correct?</label>
+                                <!--Radio input division with validation"-->     
                                 <div class="custom-control custom-radio">
-                                    <input type="radio" class="custom-control-input" id="radio-true"
-                                        name="radio" required>
+                                    <!--a radio input for check the result-->     
+                                    <input type="radio" class="custom-control-input" id="radio-true" name="radio"
+                                        required>
+                                    <!--Label of "True"-->     
                                     <label class="custom-control-label" for="radio-true">True </label>
                                 </div>
+                                <!--Radio input division with validation"-->     
                                 <div class="custom-control custom-radio mb-3">
-                                    <input type="radio" class="custom-control-input" id="radio-false"
-                                        name="radio" required>
+                                    <!--a radio input for check the result-->     
+                                    <input type="radio" class="custom-control-input" id="radio-false" name="radio"
+                                        required>
+                                    <!--Label of "False"-->
                                     <label class="custom-control-label" for="radio-false">False</label>
+                                    <!--Notification of requiring inputs-->
                                     <div class="invalid-feedback">Choose correction</div>
                                 </div>
+                                <!--Save the result division-->
                                 <div class="form-group">
+                                    <!--Label "Title of this result"-->
                                     <label for="title">Title of this result</label>
-                                    <input type="text" class="form-control is-valid" id="title-inp"
-                                        placeholder="Title" required>
+                                    <!--Title input-->
+                                    <input type="text" class="form-control is-valid" id="title-inp" placeholder="Title"
+                                        required>
                                 </div>
+                                <!--Save button-->
                                 <button type="button" class="btn btn-primary float-right" id='savebutton'>Save</button>
 
                             </form>
@@ -190,18 +232,20 @@
         </div>
     </div>
     </div>
-
-
 </body>
+<!--Link jquery cdn-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!--Link pooper.js cdn for bootstrap-->
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
     crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js"
+<!--Link bootstrap cdn-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js"
     integrity="sha384-3qaqj0lc6sV/qpzrc1N5DC6i1VRn/HyX4qdPaiEFbn54VjQBEU341pvjz7Dv3n6P"
     crossorigin="anonymous"></script>
-
+<!--Link storage library js file-->
 <script src="../libs/storage.js"></script>
+<!--Link ObjectDetection script file-->
 <script src="../scripts/ObjcetDetecion.js"></script>
 
 </html>
