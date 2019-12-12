@@ -1,41 +1,63 @@
+<!--Use predefined navbar class with style classes for create navigation bar from bootstrap-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="Index.html"><span class="fa fa-eye" style="margin-right:10px"></span>FOR Project</a>
+  <!--Navigaton title division and icon from bootstrap-->
+  <a class="navbar-brand" href="Index.html"><!--Font-awesome icon--><span class="fa fa-eye" style="margin-right:10px"></span>FOR Project</a>
+  <!--Navigaton toggler for mobile environment-->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
     aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+  <!--Navigation collapse-->
   <div class="collapse navbar-collapse" id="navbarText">
-
+    <!--navbar with spacing tool-->
     <ul class="navbar-nav ml-auto">
+      <!--Dropdown menu for Facedetection and Objectdetection-->
       <li class="nav-item dropdown">
+        <!--Dropdown-->
         <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="tur"
           aria-expanded="false">
           Detections
         </a>
+        <!--Dropdown set-->  
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <!--Anchor to FaceDetecton.html-->  
           <a class="dropdown-item" href="FaceDetection.html">Face Detection</a>
+          <!--Anchor to ObjectDetection.html-->  
           <a class="dropdown-item" href="ObjectDetection.html">Object Detection</a>
+          <!--Divider-->            
           <div class="dropdown-divider"></div>
+          <!--Anchor to Tutorial.html-->  
           <a class="dropdown-item" href="Tutorial.html">Tutorial</a>
         </div>
       </li>
+      <!--Dropdown menu for FaceList and Object List-->
       <li class="nav-item dropdown">
+        <!--Dropdown-->
         <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
           Lists
         </a>
+        <!--Dropdown set-->
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <!--Anchor to Facelist.html-->
           <a class="dropdown-item" href="Facelist.html">Face List</a>
+          <!--Anchor to Objectlist.html-->
           <a class="dropdown-item" href="Objectlist.html">Object List</a>
         </div>
       </li>
+      <!--Navigation Item-->
       <li class="nav-item">
+        <!--Anchor to Authors.html-->
         <a class="nav-link" href="Authors.html">Authors</a>
       </li>
+      <!--Navigation Item-->
       <li class="nav-item">
+        <!--Anchor to Reference.html-->
         <a class="nav-link" href="Reference.html">Reference</a>
       </li>
+      <!--Navigation Item-->
       <li class="nav-item">
+        <!--Anchor to QnA.html-->
         <a class="nav-link" href="QnA.html">Q & A</a>
       </li>
     </ul>
